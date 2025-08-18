@@ -1,19 +1,3 @@
-```txt
 streamlit
 pandas
 openpyxl
-```
-
----
-
-## 📌 ENG (Explanation)
-
-* **streamlit** → Main framework for building and deploying the web app
-* **pandas** → Data handling and manipulation (reading/writing guestbook entries)
-* **openpyxl** → Excel file export support for the admin download feature
-
-## 📌 KOR (설명)
-
-* **streamlit** → 웹 앱 제작 및 배포를 위한 핵심 프레임워크
-* **pandas** → 데이터 처리 및 관리 (방명록 작성/조회에 사용)
-* **openpyxl** → 관리자 다운로드 기능을 위한 엑셀 파일 저장 지원
