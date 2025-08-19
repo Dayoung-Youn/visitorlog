@@ -19,7 +19,7 @@ st.sidebar.title("방명록 찾기")
 search_name = st.sidebar.text_input("이름을 입력하세요", value="")
 
 # 탭 생성
-tab1, tab2, tab3, tab4 = st.tabs(["✍️ 작성하기", "📋 목록보기", "👚 의류 교환 파티란?", "♻️ 베르데비보란?"])
+tab1, tab2, tab4, tab3 = st.tabs(["✍️ 작성하기", "📋 목록보기", "👚 의류 교환 파티란?", "♻️ 베르데비보란?"])
 
 with tab1:  # 방명록 작성 탭
     with st.form("guest_form"):
@@ -107,9 +107,92 @@ with tab1:  # 방명록 작성 탭
                 file_name=FILE_NAME,
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
-with tab3:
+with tab4:
     st.subheader("의류 교환 파티")
 
-with tab4:
+with tab3:
     st.subheader("베르데비보에 대하여")
+
+    # 1. 브랜드 Hero Section
+    col1, col2 = st.columns([1,3])
+    with col1:
+        st.image("verdevivo_logo.png", use_column_width=True)
+    with col2:
+        st.markdown("## 🌱 **VerdeVivo**")
+        st.markdown("### 지속가능한 팝업스토어 경험을 설계합니다.")
+
+    st.divider()
+
+    st.subheader("🎯 우리의 미션과 프로젝트")
+
+    # 2. 미션 & 비전
+    mv_col1, mv_col2 = st.columns(2)
+    with mv_col1:
+        st.markdown("### Mission")
+        st.caption("브랜드와 소비자가 함께 만드는 친환경 팝업 경험")
+    with mv_col2:
+        st.markdown("### Vision")
+        st.caption("일회성 이벤트를 넘어 지속가능한 소비 문화로 확산")
+
+    st.markdown("---")
+
+    # 프로젝트 3개
+    st.subheader("🌍 우리가 진행하는 프로젝트")
+
+    projects = [
+        ("🟢 에코스코어 프로젝트", 
+        "국내 친환경 팝업스토어 사례 연구, 친환경성 평가 지표 개발, 친환경 운영지침 제작",
+        "데이터 기반 친환경 기준 마련"),
+        
+        ("🟢 에코픽 프로젝트", 
+        "웹진과 인스타그램 매거진 운영을 통해 2030 세대에게 환경 영향 정보 제공 및 인식 제고",
+        "지속가능성을 알리고 확산"),
+        
+        ("🟢 에코팝 프로젝트", 
+        "학교·기관·브랜드와 협업하여 에코스코어를 현장에 적용, 실효성 평가 및 개선책 탐색",
+        "실제 현장에서 실행 및 팝업스토어 문화 개선")
+    ]
+
+    for title, desc, highlight in projects:
+        st.markdown(f"### {title}")
+        st.caption(desc)
+        st.markdown(f"👉 *{highlight}*")
+        st.markdown("---")
+
+
+    st.divider()
+
+    # 3. 핵심 역량
+    st.subheader("💪 Our Capabilities")
+    cap_cols = st.columns(3)
+    capabilities = [
+        ("📊 데이터 분석", "소비/폐기물 데이터 기반 인사이트"),
+        ("🌎 환경/ESG", "UNFPA 요르단 국가사무소, 국회기후변화포럼, 고려대학교 지속가능원, 국사봉중학교 사회적협동조합 등 다양한 학내외 기관에서 환경 문제 해결을 위해 고민한 경험이 있는 학생들의 조합"),
+        ("📽️ 촬영/기사작성, SNS 운영", "Fashion&Film 매거진, NERD 매거진과 국회기후변화포럼, NERD, 고려대학교 극예술연구회 SNS 운영")
+    ]
+    for col, (title, desc) in zip(cap_cols, capabilities):
+        with col:
+            st.markdown(f"### {title}")
+            st.caption(desc)
+
+
+    st.divider()
+
+    # 5. 팀원 요약 (Optional)
+    st.subheader("👥 Behind VerdeVivo")
+    st.caption("스페인어, 환경, 촬영/기사작성 등 다양한 배경의 6명이 모였습니다.")
+    team_cols = st.columns(6)
+    for i, col in enumerate(team_cols, start=1):
+        with col:
+            st.image(f"member{i}.png", use_column_width=True, caption=f"Team {i}")
+
+    st.divider()
+
+    # 6. Contact
+    st.subheader("📬 Get in Touch")
+    st.markdown("""
+    - 📧 Email: **verdevivo@vnaver.com**  
+    - 🔗 [Instagram](https://instagram.com/ecopick.mag) | [Webzine] (https://ecopickmag.cargo.site) | [LinkTree](https://linktr.ee/verdeviv)
+    """)
+
 
