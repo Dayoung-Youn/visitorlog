@@ -174,11 +174,10 @@ with tab3:
 
     # 3. 핵심 역량
     st.subheader("💪 핵심 역량")
-    cap_cols = st.columns(3)
+    cap_cols = st.columns(2)
     capabilities = [
-        ("📊 데이터 분석", "소비/폐기물 데이터 기반 인사이트"),
-        ("🌎 환경/ESG", "UNFPA 요르단 국가사무소, 국회기후변화포럼, 고려대학교 지속가능원, 국사봉중학교 사회적협동조합 등 다양한 학내외 기관에서 환경 문제 해결을 위해 고민한 경험이 있는 학생들의 조합"),
-        ("📽️ 촬영/기사작성, SNS 운영", "Fashion&Film 매거진, NERD 매거진과 국회기후변화포럼, NERD, 고려대학교 극예술연구회 SNS 운영")
+        ("환경/ESG", "UNFPA 요르단 국가사무소, 국회기후변화포럼, 고려대학교 지속가능원, 국사봉중학교 사회적협동조합 등 다양한 학내외 기관에서 환경 문제 해결을 위해 고민한 경험이 있는 학생들의 조합"),
+        ("촬영/기사작성, SNS 운영", "Fashion&Film 매거진, NERD 매거진과 국회기후변화포럼, NERD, 고려대학교 극예술연구회 SNS 운영")
     ]
     for col, (title, desc) in zip(cap_cols, capabilities):
         with col:
@@ -190,7 +189,7 @@ with tab3:
 
     # 5. 팀원 요약 (Optional)
     st.subheader("👥 팀원들")
-    st.markdown("환경 문제와 촬영/기사작성, SNS 운영 등 다양한 경험과 관심사를 가진 6명이 모였습니다.")
+    st.markdown("환경 문제와 촬영/기사작성, SNS 운영 등 다양한 경험과 관심사를 가진 고려대학교 서어서문학과 6명이 모였습니다.")
     team_members = ["이혜린(팀장)", "김유하", "박진영", "윤다영", "이수아", "정예린"]
     member_select = st.selectbox("팀원을 선택하세요:", team_members)
     # st.image(f"member_{member_select}.png", use_column_width=True, caption=member_select)
