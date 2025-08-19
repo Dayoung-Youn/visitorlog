@@ -152,31 +152,28 @@ with tab3:
     st.markdown("---")
 
     # 프로젝트 3개
-    st.subheader("🌍 우리가 진행하는 프로젝트")
+    st.subheader("🌍 프로젝트")
 
     projects = [
-        ("🟢 에코스코어 프로젝트", 
-        "국내 친환경 팝업스토어 사례 연구, 친환경성 평가 지표 개발, 친환경 운영지침 제작",
-        "데이터 기반 친환경 기준 마련"),
+        (" EcoScore에코스코어",
+        "국내 친환경 팝업스토어 사례 연구, 친환경성 평가 지표 개발"),
+
+        (" EcoPop에코팝",
+        "학교·기관·브랜드와 협업하여 에코스코어를 현장에 적용, 실효성 평가 및 개선책 탐색, 친환경 운영지침 제작"),
+
+        (" EcoP!ck에코픽",
+        "웹진과 인스타그램 매거진 운영을 통해 2030 세대에게 환경 영향 정보 제공 및 인식 제고")
         
-        ("🟢 에코픽 프로젝트", 
-        "웹진과 인스타그램 매거진 운영을 통해 2030 세대에게 환경 영향 정보 제공 및 인식 제고",
-        "지속가능성을 알리고 확산"),
-        
-        ("🟢 에코팝 프로젝트", 
-        "학교·기관·브랜드와 협업하여 에코스코어를 현장에 적용, 실효성 평가 및 개선책 탐색",
-        "실제 현장에서 실행 및 팝업스토어 문화 개선")
     ]
 
-    for title, desc, highlight in projects:
+    for title, desc in projects:
         st.markdown(f"### {title}")
-        st.markdown(f"# {desc}")
-        st.markdown(f"*{highlight}*")
+        st.markdown(desc)
 
     st.divider()
 
     # 3. 핵심 역량
-    st.subheader("💪 우리의 핵심 역량")
+    st.subheader("💪 핵심 역량")
     cap_cols = st.columns(3)
     capabilities = [
         ("📊 데이터 분석", "소비/폐기물 데이터 기반 인사이트"),
@@ -186,7 +183,7 @@ with tab3:
     for col, (title, desc) in zip(cap_cols, capabilities):
         with col:
             st.markdown(f"### {title}")
-            st.caption(desc)
+            st.markdown(desc)
 
 
     st.divider()
