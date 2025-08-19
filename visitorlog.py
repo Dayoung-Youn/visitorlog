@@ -180,9 +180,9 @@ with tab3:
     st.subheader("👥 Behind VerdeVivo")
     st.caption("스페인어, 환경, 촬영/기사작성 등 다양한 배경의 6명이 모였습니다.")
     team_cols = st.columns(6)
-    for i, col in enumerate(team_cols, start=1):
-        with col:
-            st.image(f"member{i}.png", use_column_width=True, caption=f"Team {i}")
+    # for i, col in enumerate(team_cols, start=1):
+    #     with col:
+    #         st.image(f"member{i}.png", use_column_width=True, caption=f"Team {i}")
 
     st.divider()
 
