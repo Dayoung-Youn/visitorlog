@@ -116,7 +116,7 @@ with tab3:
     # 1. 브랜드 Hero Section
     col1, col2 = st.columns([1,3])
     with col1:
-        st.image("verdevivo_logo.png", use_column_width=True)
+        st.image("Profile Ver White.png", use_column_width=True)
     with col2:
         st.markdown("## 🌱 **VerdeVivo**")
         st.markdown("### 지속가능한 팝업스토어 경험을 설계합니다.")
