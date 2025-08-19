@@ -14,6 +14,7 @@ else:
 
 st.title("📖 VerdeVivo와 함께하는 의류 교환 파티 온라인 방명록")
 st.sidebar.title("방명록 찾기")
+st.sidebar.text("'📋 목록보기' 탭을 누르고 이름을 검색하면, 작성자명에 해당하는 방명록을 찾을 수 있어요.")
 
 # 사이드바에서 이름 입력
 search_name = st.sidebar.text_input("이름을 입력하세요", value="")
@@ -33,7 +34,7 @@ with tab1:  # 방명록 작성 탭
                 <div style="
                     color: #f8f9fa;              /* 연한 회색 글자 */
                 
-                ✅  저장하기 버튼을 누른 후, 저장 완료 메시지가 나타나면 '목록보기'에서 작성한 내용을 확인할 수 있어요.<br>🔍  좌측 칼럼을 통해 작성자명을 기준으로 방명록을 검색할 수 있어요.
+                ✅  저장하기 버튼을 누른 후, 저장 완료 메시지가 나타나면 '목록보기'에서 작성한 내용을 확인할 수 있어요.
                 </div>
                 """,
                 unsafe_allow_html=True
@@ -114,7 +115,7 @@ with tab3:
     # 1. 브랜드 Hero Section
     col1, col2 = st.columns([1, 4])
 
-    col2_text = """
+    col1_text = """
     ### 지속가능한 팝업스토어 경험을 설계합니다.
 
     <div style="background-color:#e6f9ec; padding:16px;">
@@ -123,17 +124,17 @@ with tab3:
     </div>
     """
 
-    text_length = len(col2_text)
+    text_length = len(col1_text)
     # 텍스트 길이에 따른 이미지 너비 대략 계산 (너무 커지지 않게 제한)
     image_width = min(max(100, text_length // 3), 300)
 
-    with col1:
+    with col2:
         st.image(
             ["./Profile Ver White.png", "./Profile Verde White.png"],
             width=image_width
         )
-    with col2:
-        st.markdown(col2_text, unsafe_allow_html=True)
+    with col1:
+        st.markdown(col1_text, unsafe_allow_html=True)
 
     st.divider()
     
