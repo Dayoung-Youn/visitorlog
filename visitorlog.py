@@ -19,7 +19,7 @@ st.sidebar.title("방명록 찾기")
 search_name = st.sidebar.text_input("이름을 입력하세요", value="")
 
 # 탭 생성
-tab1, tab2, tab4, tab3 = st.tabs(["✍️ 작성하기", "📋 목록보기", "👚 의류 교환 파티란?", "♻️ 베르데비보란?"])
+tab1, tab2, tab3, tab4 = st.tabs(["✍️ 작성하기", "📋 목록보기", "♻️ 베르데비보란?", "👚 의류 교환 파티란?"])
 
 with tab1:  # 방명록 작성 탭
     with st.form("guest_form"):
@@ -52,26 +52,26 @@ with tab1:  # 방명록 작성 탭
             else:
                 st.warning("이름과 메시지를 모두 입력해주세요.")
 
-    with tab2:  # 방명록 목록 탭
-        st.subheader("📋 방명록 목록")
+with tab2:  # 방명록 목록 탭
+    st.subheader("📋 방명록 목록")
 
-        # 이름으로 필터링
-        if search_name:
-            filtered_df = df[df["이름"].str.contains(search_name)]
-            if filtered_df.empty:
+    # 이름으로 필터링
+    if search_name:
+        filtered_df = df[df["이름"].str.contains(search_name)]
+        if filtered_df.empty:
                 st.info(f"'{search_name}' 이름의 방명록이 없습니다.")
-        else:
-            filtered_df = df
+    else:
+        filtered_df = df
 
-        cards_per_row = 3  # 한 줄에 보여줄 카드 수
-        for i in range(0, len(filtered_df), cards_per_row):
-            cols = st.columns(cards_per_row)
-            for j, col in enumerate(cols):
-                if i + j < len(filtered_df):
-                    row = filtered_df.iloc[i + j]
-                    with col:
-                        st.markdown(
-                            f"""
+    cards_per_row = 3  # 한 줄에 보여줄 카드 수
+    for i in range(0, len(filtered_df), cards_per_row):
+        cols = st.columns(cards_per_row)
+        for j, col in enumerate(cols):
+            if i + j < len(filtered_df):
+                row = filtered_df.iloc[i + j]
+                with col:
+                    st.markdown(
+                        f"""
                         <div style="
                             background-color:#f8f9fa;
                             padding:15px;
@@ -84,7 +84,7 @@ with tab1:  # 방명록 작성 탭
                             <p style="font-size:13px; color:gray; text-align:right;">- {row['이름']} ({row['날짜']})</p>
                         </div>
                         """,
-                        unsafe_allow_html=True
+                    unsafe_allow_html=True
                     )
 
         # 관리자 전용 다운로드 기능
@@ -107,8 +107,6 @@ with tab1:  # 방명록 작성 탭
                 file_name=FILE_NAME,
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
-with tab4:
-    st.subheader("의류 교환 파티")
 
 with tab3:
     st.subheader("베르데비보에 대하여")
@@ -195,4 +193,5 @@ with tab3:
     - 🔗 [Instagram](https://instagram.com/ecopick.mag) | [Webzine] (https://ecopickmag.cargo.site) | [LinkTree](https://linktr.ee/verdeviv)
     """)
 
-
+with tab4:
+    st.subheader("의류 교환 파티")
