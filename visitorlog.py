@@ -135,19 +135,19 @@ with tab3:
     with col2:
         st.markdown(col2_text, unsafe_allow_html=True)
 
-        st.divider()
+    st.divider()
     
 
     # 2. 미션 & 비전
-    st.subheader("🎯 우리의 미션과 프로젝트")
-    
+    st.subheader("🎯 우리의 미션")
+
     mv_col1, mv_col2 = st.columns(2)
     with mv_col1:
         st.markdown("### Mission")
-        st.caption("팝업스토어 폐기물을 줄여 브랜드와 소비자가 함께 만드는 친환경 팝업스토어 경험")
+        st.caption("팝업스토어 폐기물을 줄여 브랜드와 소비자가 함께 친환경 팝업스토어를 만들어갑니다")
     with mv_col2:
         st.markdown("### Vision")
-        st.caption("일회성 이벤트를 넘어 지속가능한 소비 문화의 확산")
+        st.caption("일회성 이벤트를 넘어 지속가능한 소비 문화를 확산하고 정착합니다")
 
     st.markdown("---")
 
@@ -170,15 +170,13 @@ with tab3:
 
     for title, desc, highlight in projects:
         st.markdown(f"### {title}")
-        st.caption(desc)
-        st.markdown(f"👉 *{highlight}*")
-        st.markdown("---")
-
+        st.markdown(f"# {desc}")
+        st.markdown(f"*{highlight}*")
 
     st.divider()
 
     # 3. 핵심 역량
-    st.subheader("💪 Our Capabilities")
+    st.subheader("💪 우리의 핵심 역량")
     cap_cols = st.columns(3)
     capabilities = [
         ("📊 데이터 분석", "소비/폐기물 데이터 기반 인사이트"),
@@ -194,10 +192,8 @@ with tab3:
     st.divider()
 
     # 5. 팀원 요약 (Optional)
-    st.subheader("👥 Behind VerdeVivo")
-    st.caption("스페인어, 환경, 촬영/기사작성 등 다양한 배경의 6명이 모였습니다.")
-    # 팀원 (선택하면 이미지 표시)
-    st.subheader("👥 Behind VerdeVivo")
+    st.subheader("👥 팀원들")
+    st.markdown("환경 문제와 촬영/기사작성, SNS 운영 등 다양한 경험과 관심사를 가진 6명이 모였습니다.")
     team_members = ["이혜린(팀장)", "김유하", "박진영", "윤다영", "이수아", "정예린"]
     member_select = st.selectbox("팀원을 선택하세요:", team_members)
     # st.image(f"member_{member_select}.png", use_column_width=True, caption=member_select)
@@ -207,7 +203,7 @@ with tab3:
     # 6. Contact
     st.subheader("📬 Get in Touch")
     st.markdown("""
-    - 📧 Email: **verdevivo@vnaver.com**  
+    - 📧 Email: **verdevivo@naver.com**  
     - 🔗 [Instagram](https://instagram.com/ecopick.mag) | [Webzine](https://ecopickmag.cargo.site) | [LinkTree](https://linktr.ee/verdeviv)
     """)
 
