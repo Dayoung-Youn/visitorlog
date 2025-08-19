@@ -14,7 +14,7 @@ else:
 
 st.title("📖 VerdeVivo와 함께하는 의류 교환 파티 온라인 방명록")
 st.sidebar.title("방명록 찾기")
-st.sidebar.text("'📋 목록보기' 탭을 누르고 이름을 검색하면, 작성자명에 해당하는 방명록을 찾을 수 있어요.")
+st.sidebar.caption("'📋 목록보기' 탭을 누르고 이름을 검색하면, 작성자명에 해당하는 방명록을 찾을 수 있어요.")
 
 # 사이드바에서 이름 입력
 search_name = st.sidebar.text_input("이름을 입력하세요", value="")
@@ -115,25 +115,25 @@ with tab3:
     # 1. 브랜드 Hero Section
     col1, col2 = st.columns([1, 4])
 
-    col1_text = """
-    ### 지속가능한 팝업스토어 경험을 설계합니다.
+    col2_text = """
+        ### 지속가능한 팝업스토어 경험을 설계합니다.
 
-    <div style="background-color:#e6f9ec; padding:16px;">
-        <b>베르데비보(VerdeVivo)</b>는 ‘녹색’(Verde)과 ‘삶’(Vivo)의 스페인어 합성어로, 친환경적 삶을 지향하는 팀의 방향성을 담았습니다.<br>
-        또한, ‘Ver de Vivo’(사는 것을 보다)라는 의미처럼, 일상에서 환경 문제를 직접 바라보고 해결하고자 합니다.
-    </div>
-    """
+        <div style="background-color:#e6f9ec; padding:16px;">
+            <b>베르데비보(VerdeVivo)</b>는 ‘녹색’(Verde)과 ‘삶’(Vivo)의 스페인어 합성어로, 친환경적 삶을 지향하는 팀의 방향성을 담았습니다.<br>
+            또한, ‘Ver de Vivo’(사는 것을 보다)라는 의미처럼, 일상에서 환경 문제를 직접 바라보고 해결하고자 합니다.
+        </div>
+        """
 
-    text_length = len(col1_text)
-    # 텍스트 길이에 따른 이미지 너비 대략 계산 (너무 커지지 않게 제한)
+    text_length = len(col2_text)
+        # 텍스트 길이에 따른 이미지 너비 대략 계산 (너무 커지지 않게 제한)
     image_width = min(max(100, text_length // 3), 300)
 
-    with col2:
-        st.image(
-            ["./Profile Ver White.png", "./Profile Verde White.png"],
-            width=image_width
-        )
     with col1:
+        st.image(
+                ["./Profile Ver White.png", "./Profile Verde White.png"],
+                width=image_width
+            )
+    with col2:
         st.markdown(col1_text, unsafe_allow_html=True)
 
     st.divider()
