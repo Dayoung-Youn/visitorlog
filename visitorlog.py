@@ -60,11 +60,11 @@ with tab2:  # 방명록 목록 탭
     if search_name:
         filtered_df = df[df["이름"].str.contains(search_name)]
         if filtered_df.empty:
-                st.info(f"'{search_name}' 이름의 방명록이 없습니다.")
+            st.info(f"'{search_name}' 이름의 방명록이 없습니다.")
     else:
         filtered_df = df
 
-    cards_per_row = 3  # 한 줄에 보여줄 카드 수
+    cards_per_row = 3
     for i in range(0, len(filtered_df), cards_per_row):
         cols = st.columns(cards_per_row)
         for j, col in enumerate(cols):
@@ -85,11 +85,20 @@ with tab2:  # 방명록 목록 탭
                             <p style="font-size:13px; color:gray; text-align:right;">- {row['이름']} ({row['날짜']})</p>
                         </div>
                         """,
-                    unsafe_allow_html=True
+                        unsafe_allow_html=True
                     )
 
-        # 관리자 전용 다운로드 기능
-        st.write("---")
+
+    if "show_admin_input" not in st.session_state:
+        st.session_state.show_admin_input = False
+
+    if st.checkbox("관리자 모드", value=False):
+        st.session_state.show_admin_input = True
+    else:
+        st.session_state.show_admin_input = False
+
+    # 관리자 모드일 때만 비밀번호 입력창과 엑셀 다운로드 버튼 노출
+    if st.session_state.show_admin_input:
         admin_pw = st.text_input("🔑 관리자 비밀번호 입력", type="password")
         if admin_pw == "admin123":  # 원하는 비밀번호로 변경하세요
             st.success("관리자 인증 성공 ✅")
@@ -105,7 +114,7 @@ with tab2:  # 방명록 목록 탭
             st.download_button(
                 label="📥 방명록 엑셀 다운로드",
                 data=excel_data,
-                file_name=FILE_NAME,
+                file_name="방명록.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
 
@@ -145,10 +154,10 @@ with tab3:
     mv_col1, mv_col2 = st.columns(2)
     with mv_col1:
         st.markdown("### Mission")
-        st.caption("팝업스토어 폐기물을 줄여 브랜드와 소비자가 함께 친환경 팝업스토어를 만들어갑니다")
+        st.markdown("팝업스토어 폐기물을 줄여 브랜드와 소비자가 함께 친환경 팝업스토어를 만들어갑니다")
     with mv_col2:
         st.markdown("### Vision")
-        st.caption("일회성 이벤트를 넘어 지속가능한 소비 문화를 확산하고 정착합니다")
+        st.markdown("일회성 이벤트를 넘어 지속가능한 소비 문화를 확산하고 정착합니다")
 
     st.markdown("---")
 
