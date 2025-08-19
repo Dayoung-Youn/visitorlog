@@ -109,28 +109,45 @@ with tab2:  # 방명록 목록 탭
             )
 
 with tab3:
-    st.subheader("베르데비보에 대하여")
+    st.title("🌱 VerdeVivo베르데비보")
 
     # 1. 브랜드 Hero Section
-    col1, col2 = st.columns([1,3])
+    col1, col2 = st.columns([1, 4])
+
+    col2_text = """
+    ### 지속가능한 팝업스토어 경험을 설계합니다.
+
+    <div style="background-color:#e6f9ec; padding:16px;">
+        <b>베르데비보(VerdeVivo)</b>는 ‘녹색’(Verde)과 ‘삶’(Vivo)의 스페인어 합성어로, 친환경적 삶을 지향하는 팀의 방향성을 담았습니다.<br>
+        또한, ‘Ver de Vivo’(사는 것을 보다)라는 의미처럼, 일상에서 환경 문제를 직접 바라보고 해결하고자 합니다.
+    </div>
+    """
+
+    text_length = len(col2_text)
+    # 텍스트 길이에 따른 이미지 너비 대략 계산 (너무 커지지 않게 제한)
+    image_width = min(max(100, text_length // 3), 300)
+
     with col1:
-        st.image("Profile Ver White.png", use_column_width=True)
+        st.image(
+            ["./Profile Ver White.png", "./Profile Verde White.png"],
+            width=image_width
+        )
     with col2:
-        st.markdown("## 🌱 **VerdeVivo**")
-        st.markdown("### 지속가능한 팝업스토어 경험을 설계합니다.")
+        st.markdown(col2_text, unsafe_allow_html=True)
 
-    st.divider()
-
-    st.subheader("🎯 우리의 미션과 프로젝트")
+        st.divider()
+    
 
     # 2. 미션 & 비전
+    st.subheader("🎯 우리의 미션과 프로젝트")
+    
     mv_col1, mv_col2 = st.columns(2)
     with mv_col1:
         st.markdown("### Mission")
-        st.caption("브랜드와 소비자가 함께 만드는 친환경 팝업 경험")
+        st.caption("팝업스토어 폐기물을 줄여 브랜드와 소비자가 함께 만드는 친환경 팝업스토어 경험")
     with mv_col2:
         st.markdown("### Vision")
-        st.caption("일회성 이벤트를 넘어 지속가능한 소비 문화로 확산")
+        st.caption("일회성 이벤트를 넘어 지속가능한 소비 문화의 확산")
 
     st.markdown("---")
 
@@ -179,10 +196,11 @@ with tab3:
     # 5. 팀원 요약 (Optional)
     st.subheader("👥 Behind VerdeVivo")
     st.caption("스페인어, 환경, 촬영/기사작성 등 다양한 배경의 6명이 모였습니다.")
-    team_cols = st.columns(6)
-    # for i, col in enumerate(team_cols, start=1):
-    #     with col:
-    #         st.image(f"member{i}.png", use_column_width=True, caption=f"Team {i}")
+    # 팀원 (선택하면 이미지 표시)
+    st.subheader("👥 Behind VerdeVivo")
+    team_members = ["이혜린(팀장)", "김유하", "박진영", "윤다영", "이수아", "정예린"]
+    member_select = st.selectbox("팀원을 선택하세요:", team_members)
+    # st.image(f"member_{member_select}.png", use_column_width=True, caption=member_select)
 
     st.divider()
 
@@ -190,7 +208,7 @@ with tab3:
     st.subheader("📬 Get in Touch")
     st.markdown("""
     - 📧 Email: **verdevivo@vnaver.com**  
-    - 🔗 [Instagram](https://instagram.com/ecopick.mag) | [Webzine] (https://ecopickmag.cargo.site) | [LinkTree](https://linktr.ee/verdeviv)
+    - 🔗 [Instagram](https://instagram.com/ecopick.mag) | [Webzine](https://ecopickmag.cargo.site) | [LinkTree](https://linktr.ee/verdeviv)
     """)
 
 with tab4:
