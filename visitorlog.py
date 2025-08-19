@@ -134,7 +134,7 @@ with tab3:
                 width=image_width
             )
     with col2:
-        st.markdown(col1_text, unsafe_allow_html=True)
+        st.markdown(col2_text, unsafe_allow_html=True)
 
     st.divider()
     
